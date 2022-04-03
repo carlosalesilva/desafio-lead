@@ -17,7 +17,8 @@
     background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(15,15,15,1) 59%, rgba(228,214,214,0.7477477477477478) 100%);
     color: white;
     font-family: 'Roboto', sans-serif;
-    
-    
+  }
+  .footer{
+      text-align: center;
   }
   
