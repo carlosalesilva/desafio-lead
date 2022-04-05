@@ -10,39 +10,57 @@ const basicFetch = async (endpoint) => {
     return json; 
 };
 
-export default{
-    getHomeList: async() => {
-        return[
-            {
-                slug:'trending',
-                title:'Mais Populares',
-                items: await basicFetch(`/trending/all/week?language=pt-BR&api_key=${API_KEY}`)
-            },
-            {
-                slug:'toprated',
-                title:'Em Alta',
-                items: await basicFetch(`/movie/top_rated??language=pt-BR&api_key=${API_KEY}`)
-            },
-            {
-                slug:'comedy',
-                title:'Comédia',
-                 items: await basicFetch(`/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`)
-            },
-            {
-                slug:'action',
-                title:'Ação',
-                items: await basicFetch(`/discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`)
-            },
-            {
-                slug:'horror',
-                title:'Terror',
-                 items: await basicFetch(`/discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`)
-            },
-            {
-                slug:'romance',
-                title:'Romance',
-                items: await basicFetch(`/discover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`)
-            },
-        ]; 
-    }
-}
+export default {
+    getHomeList: async () => {
+      return [
+        {
+          slug: "trending",
+          title: "Populares",
+          items: await basicFetch(
+            `/trending/all/week?language=pt-BR&api_key=${API_KEY}`
+          ),
+        },
+        {
+          slug: "toprated",
+          title: "Em Alta",
+          items: await basicFetch(
+            `/movie/top_rated?&language=pt-BR&api_key=${API_KEY}`
+          ),
+        },
+        {
+          slug: "action",
+          title: "Ação",
+          items: await basicFetch(
+            `/discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`
+          ),
+        },
+        {
+          slug: "comedy",
+          title: "Comédia",
+          items: await basicFetch(
+            `/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`
+          ),
+        },
+        {
+          slug: "horror",
+          title: "Terror",
+          items: await basicFetch(
+            `/discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`
+          ),
+        },
+        {
+          slug: "romance",
+          title: "Romance",
+          items: await basicFetch(
+            `/discover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`
+          ),
+        },
+      ];
+    },
+  getMovieInfo: async (movieId) => {
+    let info = {};
+    info = await basicFetch(`/movie/${movieId}?language=pt-BR&api_key=${API_KEY}`)
+    return info;
+  }
+
+};

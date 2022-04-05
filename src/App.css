@@ -1,24 +1,2 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body{
-    font-family: sans-serif;
-    background-color: #111;
-    color: aliceblue;
-  }
-  button{
-    cursor: pointer;
-  }
-  .page{
-    background: rgb(20,20,20);
-    background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(15,15,15,1) 59%, rgba(228,214,214,0.7477477477477478) 100%);
-    color: white;
-    font-family: 'Roboto', sans-serif;
-  }
-  .footer{
-      text-align: center;
-  }
+
   

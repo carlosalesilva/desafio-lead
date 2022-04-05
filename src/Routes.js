@@ -1,20 +1,14 @@
-import React, { Component } from "react";
-import {
-    BrowserRouter,
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from "react-router-dom";
-import App from "./App";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Details from "./components/pages/details/Details";
+import Home from "./components/pages/home/Home";
 
-
-export default () => {
-    return(
-        
-        <div>
-        <BrowserRouter>
-      <Route path="/oi" element={<App />} />
+export default function routes() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/details/:id" element={<Details />} />
+      </Routes>
     </BrowserRouter>
-        </div>
-    );
+  );
 }
