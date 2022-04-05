@@ -23,14 +23,21 @@ export default () => {
           </div>
             }
             {featuredData != null &&
-                <div>
+                <div className='container'>
                     <img src={`https://image.tmdb.org/t/p/original${featuredData.backdrop_path}`} />
                     <div className='details'>
                         <h1>{featuredData.title}</h1>
                         <span>Sinopse: {featuredData.overview}</span>
                         <span className='release-date'>Pontuação: {featuredData.vote_average}</span>
-                        <Link to='/'>
-                        <button>Início</button>
+                        <div className='genres'>
+                            <span className='release-date'>Gêneros: </span>
+                            {featuredData.genres.map((genero, index) => {
+                                if(index < (featuredData.genres.length - 1)) return <span className='release-date'><li>{genero.name},</li></span>
+                                else return <span className='release-date'><li>{genero.name}.</li></span>
+                            })}
+                        </div>
+                        <Link to='/' className='buton'>
+                            <button>Voltar</button>
                         </Link>
                     </div>
                 </div>}
