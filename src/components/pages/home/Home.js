@@ -28,8 +28,6 @@ export default function Home() {
       //pegando a lista total 
       let list = await Themovie.getHomeList();
       setMovieList(list);
-      //Pegando o featured
-      
     }
 
     loadAll();
@@ -47,7 +45,7 @@ export default function Home() {
       <footer className='footer'>
         <div className="suave" > 
         <button >
-          <Link to='/details'>
+          <Link to='/'>
             <MdOutlineKeyboardArrowUp style={{ fontSize: 50 }}/>
           </Link>
         </button>

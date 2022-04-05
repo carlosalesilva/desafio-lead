@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './Details.css';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
+import './Details.css'
+import { Link } from 'react-router-dom';
 
 export default () => {
     const { id } = useParams();
@@ -14,15 +15,24 @@ export default () => {
 
     }, []);
     return (
+        
         <div className='movie-container'>
+            {featuredData == null &&
+            <div className='loading'>
+            <img src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif" alt carregando />
+          </div>
+            }
             {featuredData != null &&
-                <div className='details'>
-                     <div className="featured--horizontal">
-                    <div 
-                    className="featured--name">{featuredData.original_title}
-                    <img src={`https://image.tmdb.org/t/p/original${featuredData.backdrop_path}`}></img> 
+                <div>
+                    <img src={`https://image.tmdb.org/t/p/original${featuredData.backdrop_path}`} />
+                    <div className='details'>
+                        <h1>{featuredData.title}</h1>
+                        <span>Sinopse: {featuredData.overview}</span>
+                        <span className='release-date'>Pontuação: {featuredData.vote_average}</span>
+                        <Link to='/'>
+                        <button>Início</button>
+                        </Link>
                     </div>
-                    </div>  
                 </div>}
         </div>
     );
