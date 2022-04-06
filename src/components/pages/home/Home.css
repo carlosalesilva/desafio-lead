@@ -31,12 +31,11 @@
   .icon-arrow-top {
     cursor: pointer;
   }
-  .pageAlta {
-    background: rgb(20,20,20);
-    background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(15,15,15,1) 59%, rgba(228,214,214,0.7477477477477478) 100%);
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    position: absolute;
-    top: 15px;
+  .button-arrow{
+    width: 100%;
+    display: flex;
+    margin-bottom: 24px;
   }
- 
+  .button-scroll{
+    justify-content: center;
+  }

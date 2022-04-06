@@ -4,24 +4,18 @@ import MovieList from '../../movielist/MovieList';
 import Navbar from '../../navbar/Navbar';
 import './Home.css';
 
-import {MdOutlineKeyboardArrowUp} from 'react-icons/md'
+import { MdOutlineKeyboardArrowUp } from 'react-icons/md'
+import { AiOutlineCopyright } from 'react-icons/ai'
 import { Link } from 'react-router-dom';
+import { icons } from 'react-icons';
 
 
 
 export default function Home() {
 
   const [movieList, setMovieList] = useState([]);
- 
-  const [scrollX, setScrollX] = useState(-400);
-  function handleUpArrow () {
-    let x = scrollX + Math.round(window.innerHeight);
-    if (x > 0) {
-        x = 0;
-    }
-    setScrollX(x);
-}
-  
+
+
   //Quando a tela for carregada vai executar a função 
   useEffect(() => {
     const loadAll = async () => {
@@ -33,25 +27,31 @@ export default function Home() {
     loadAll();
   }, []);
 
+  function scrolltop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <div className="page">
       <Navbar />
-      
       <section className="lists">
         {movieList.map((item, key) => (
           <MovieList key={key} title={item.title} items={item.items}/>
         ))}
       </section>
-      <footer className='footer'>
-        <div className="suave" > 
-        <button >
-          <Link to='/'>
-            <MdOutlineKeyboardArrowUp style={{ fontSize: 50 }}/>
-          </Link>
+      <div className='button-arrow'>
+        <button className="button-scroll" onClick={scrolltop}>
+          <i className="fa-solid fa-arrow-up"><MdOutlineKeyboardArrowUp style={{ fontSize: 30 }} /></i>
         </button>
-        
+      </div>
+      <footer className='footer'>
+        <div className="suave" >
         </div>
-        <small>Direitos Reservados 2022</small>
+        <AiOutlineCopyright />
+        <small>   Direitos Reservados 2022</small>
       </footer>
       {movieList.length <= 0 &&
         <div className='loading'>
