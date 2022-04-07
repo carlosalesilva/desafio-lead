@@ -19,8 +19,6 @@ const Navbar = () => {
   return (
     <div class="topnav">
       <a class="active" href="#home">Desafio Lead</a>
-      <a href="#about">Filtrar por gênero</a>
-      <a href="#contact">Filtrar por categorias</a>
       <div class="search-container">
         <form>
           <input type="text" placeholder="Procurar.." name="search" value={textData} onChange={(e)=>setTextData(e.target.value)}/> 

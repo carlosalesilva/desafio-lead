@@ -20,16 +20,13 @@ export default ({ title, items }) => {
             x = (window.innerWidth - listW) - 60;
         }
         setScrollX(x);
-
-      
     }
     function scrolltop() {
         window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
+            top: 0,
+            behavior: 'smooth'
         })
-      }
-
+    }
     return (
         <div className="movieList">
             <h2>{title}</h2>
